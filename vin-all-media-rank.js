@@ -3,7 +3,7 @@ WidgetMetadata = {
   title: "影视榜单",
   description: "获取TMDB榜单数据",
   author: "Vin",
-  version: "2.0.1",
+  version: "2.0.2",
   requiredVersion: "0.0.2",
   detailCacheDuration: 60,
   modules: [    
@@ -2985,7 +2985,7 @@ async function fetchImdbItemsForDouban(scItems) {
                     .map(match => ({
                         id: match.id,
                         type: "tmdb",
-                        title: match.title ?? match.name,
+                        title: scItem.title?.trim() || (match.title ?? match.name),
                         description: match.overview,
                         releaseDate: match.release_date ?? match.first_air_date,
                         backdropPath: match.backdrop_path,
@@ -3018,7 +3018,7 @@ async function fetchImdbItemsForDouban(scItems) {
                     return {
                         id: bestMatch.id,
                         type: "tmdb",
-                        title: bestMatch.title ?? bestMatch.name,
+                        title: scItem.title?.trim() || (bestMatch.title ?? bestMatch.name),
                         description: bestMatch.overview,
                         releaseDate: bestMatch.release_date ?? bestMatch.first_air_date,
                         backdropPath: bestMatch.backdrop_path,
