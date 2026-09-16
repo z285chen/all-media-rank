@@ -3,7 +3,7 @@ WidgetMetadata = {
   title: "影视榜单",
   description: "获取TMDB榜单数据",
   author: "Vin",
-  version: "2.0.0",
+  version: "2.0.1",
   requiredVersion: "0.0.2",
   detailCacheDuration: 60,
   modules: [    
@@ -2647,7 +2647,7 @@ async function fetchTmdbDataForDouban(key, mediaType) {
             const tmdbResults = await Widget.tmdb.get(`/search/${type}`, {
                 params: {
                     query: key,
-                    language: "zh_CN",
+                    language: "zh-CN",
                 }
             });
             
